@@ -1,13 +1,14 @@
-'use strict'
-const chalk = require('chalk');
-const Sequelize = require('sequelize');
-const pkg = require('../../package.json');
+// This file contains our Sequelize instance. You probably don't need to modify it!
+// All of your models should be defined as their own modules in the `/db/models` folder,
+// and they should be exported via /db/models/index.js
 
-console.log(chalk.yellow("Opening database connection"));
+const chalk = require('chalk')
+const Sequelize = require('sequelize')
+const pkg = require('../../package.json')
 
-// create the database instance that can be used in other database files
+console.log(chalk.yellow('Opening database connection'))
+
+// Create the database instance that can be used in other database files
 module.exports = new Sequelize(`postgres://localhost:5432/${pkg.name}`, {
-  logging: false, // so we don't see all the SQL query made
-});
-
-// don't forget to run our models files and make all associations for our Sequelize objects (if you do it here consider circular references)
+  logging: false // so we don't see all the SQL queries getting made
+})
