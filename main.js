@@ -7,6 +7,12 @@ const PORT = 8080
 
 db.sync() // if you update your db schemas, make sure you drop the tables first and then recreate them
   .then(() => {
-    chalk.green('Db synced!')
-    app.listen(PORT, () => chalk.green(`Studiously serving silly sounds on port ${PORT}`))
+    console.log(chalk.green(`
+      Db synced!
+    `))
+    app.listen(PORT, () => console.log(chalk.green(`
+      Studiously serving silly sounds on port ${PORT}
+
+      http://localhost:8080/
+    `)))
   })

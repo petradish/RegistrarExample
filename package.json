@@ -4,7 +4,8 @@
   "description": "A review time project",
   "main": "index.js",
   "scripts": {
-    "start": "webpack -w & nodemon main.js -e html,js,css --ignore public"
+    "start": "webpack -w & nodemon main.js -e html,js,css --ignore public",
+    "seed": "node seed.js"
   },
   "keywords": [
     "react",
