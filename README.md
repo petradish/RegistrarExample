@@ -1,4 +1,4 @@
-# Senior Enrichment Project
+# Junior Phase Final Project
 
 ## Getting started
 
