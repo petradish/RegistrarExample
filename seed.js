@@ -6,7 +6,7 @@ const Student = require('./server/db/students')
 
 const campuses = [{
   name: 'Hogwarts',
-  imageUrl: 'https://cdn.gbposters.com/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/f/p/fp4759-harry-potter-hogwarts-day_1.jpg',
+  imageUrl: 'https://vignette.wikia.nocookie.net/harrypotter/images/b/bd/Dhogwarts.jpg/revision/latest?cb=20120128145344',
   address: `Get on at Platform 9 and 3/4`,
   description: 'School for wizards and witches',
 }, {

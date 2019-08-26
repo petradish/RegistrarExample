@@ -12,7 +12,6 @@ class disconnectedAllCampuses extends React.Component {
             <div className='campuses'>
                 <h2 className='campus-title'>All Campuses</h2>
                 <div className='campus-container'>
-                    {console.log(this.props.campuses)}
                     {this.props.campuses.map(campus => <SingleCampus key={campus.id} campus={campus} />)}
                 </div>
             </div>

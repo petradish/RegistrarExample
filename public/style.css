@@ -18,16 +18,17 @@ body {
 
 nav {
   align-items: center;
-  background-color: #333333;
-  color: #c0c0c0;
+  background-color: lightseagreen;
+  color: darkorchid;
   display: flex;
+  justify-content: space-around;
   height: 80px;
   padding: 10px;
 }
 
 main {
-  align-items: center;
   display: flex;
+  align-items: center;
   flex-direction: column;
-  justify-content: center;
+
 }

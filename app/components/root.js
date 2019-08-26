@@ -8,13 +8,13 @@ const Root = () => {
     <Router>
       <div>
         <nav>
-          Welcome!
+          <Link to='/'>Welcome</Link>
           <Link to='/campuses'>All Campuses</Link>
           <Link to='/students'>All Students</Link>
         </nav>
         <main>
-          <h1>Welcome to the Margaret Hamilton Academy of JavaScript!</h1>
-          <p>This seems like a nice place to get started with some Routes!</p>
+          <h1>Welcome to the Margaret Hamilton Academy of JavaScript</h1>
+          <p>Check out our campus locations and star students!</p>
           <Switch>
             <Route path='/campuses' component={AllCampuses} />
             <Route path='/students' component={AllStudents} />
