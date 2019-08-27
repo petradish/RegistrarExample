@@ -21,4 +21,16 @@ router.get('/:id', async (req, res, next) => {
         next(err)
     }
 })
+
+router.post('/:id', async (req, res, next) => {
+    try {
+        const campus = await Campus.create(req.body)
+        res.status(201)
+        res.json(campus)
+    } catch (err) {
+        next(err)
+    }
+})
+
+
 module.exports = router;
