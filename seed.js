@@ -19,6 +19,10 @@ const campuses = [{
   imageUrl: 'https://collegetransfer.azureedge.net/Photo/190594_3182011115810AM_pic.jpg?cdv=129',
   address: 'Park Ave., Manhattan',
   description: 'Urban college campus setting'
+}, {
+  name: 'Funtown',
+  address: 'Brooklyn',
+  description: 'Fun times'
 }];
 
 const students = [{
@@ -34,15 +38,21 @@ const students = [{
   email: 'hgranger@hogwarts.edu',
   imageUrl: 'https://timedotcom.files.wordpress.com/2014/07/hermione.jpeg',
   gpa: 3.92,
-  campusId: 1
+  campusId: 3
 }, {
   firstName: 'Jonathan',
   lastName: 'Greaser',
   email: 'greaser64@gmail.com',
   imageUrl: 'http://s3.amazonaws.com/improvcoaches/users/avatars/799/medium/16_06_02_UCBW_Cocky_Nobodies_V_Curfew_036-L.jpg?1470865304',
   gpa: 3.85,
-  campusId: 3
-}]
+  campusId: 1
+}, {
+  firstName: 'Petra',
+  lastName: 'Laohakul',
+  email: 'petra@gmail.com',
+  gpa: 3.5
+}];
+
 const seed = async () => {
   await db.sync({force: true})
 

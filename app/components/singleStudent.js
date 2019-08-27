@@ -1,11 +1,16 @@
 import React from 'react'
+import {Link} from 'react-router-dom'
+
 
 const SingleStudent = props => {
-    const {firstName, lastName, imageUrl} = props.student;
+    const {id, firstName, lastName, imageUrl} = props.student;
     return (
         <div>
-            <h3>{firstName} {lastName}</h3>
+            
+            <Link to={`/students/${id}`}> 
+            <h3>{firstName} {lastName}</h3> </Link>
             <img src={imageUrl} />
+
         </div>
     )
 }

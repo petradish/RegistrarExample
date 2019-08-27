@@ -12,7 +12,7 @@ class disconnectedAllStudents extends React.Component {
           <div className='students'>
               <h2 className='student-title'>All Students</h2>
               <div className='student-container'>
-                  {this.props.students.map(student => <SingleStudent key={student.id} student={student} />)}
+                  {this.props.allStudents.map(singleStudent => <SingleStudent key={singleStudent.id} student={singleStudent} />)}
               </div>
           </div>
       )
@@ -20,7 +20,7 @@ class disconnectedAllStudents extends React.Component {
 }
 
 const mapStateToProps = state => ({
-  students: state.students,
+  allStudents: state.students,
 })
 const mapDispatchToProps = dispatch => ({
   getAllStudents: () => dispatch(getStudents())

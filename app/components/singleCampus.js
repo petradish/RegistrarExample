@@ -1,10 +1,11 @@
 import React from 'react'
+import {Link} from 'react-router-dom'
 
 const SingleCampus = props => {
-    const {name, imageUrl} = props.campus;
+    const {name, imageUrl, id} = props.campus;
     return (
         <div>
-            <h3>{name}</h3>
+             <Link to={`/campuses/${id}`}> <h3>{name}</h3> </Link>
             <img src={imageUrl} />
         </div>
     )
