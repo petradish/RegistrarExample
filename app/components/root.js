@@ -18,6 +18,7 @@ const Root = () => {
           <h1>Welcome to the Margaret Hamilton Academy of JavaScript</h1>
           <p>Check out our campus locations and star students!</p>
           <Switch>
+            <Route exact path='/' component={AllCampuses} />
             <Route exact path='/campuses' component={AllCampuses} />
             <Route exact path='/campuses/:id' component={SingleCampusDetail} />
 

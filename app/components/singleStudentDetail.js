@@ -11,17 +11,23 @@ class disconnectedSingleStudentDetail extends React.Component {
     
     }
     render(){
-        const {firstName, lastName, imageUrl, email, gpa} = this.props.student
+
+        if (this.props.student) {
+            const {firstName, lastName, imageUrl, email, gpa} = this.props.student
      
-        return (
-            <div>
-                <h3>{firstName} {lastName}</h3>
-                <h4>I attend: {this.props.campus ? <Link to={`/campuses/${this.props.campus.id}`}>{this.props.campus.name}</Link> : 'Not currently enrolled' }</h4>
-                <h4>Send me an email: {email}</h4>
-                <img src={imageUrl} />
-                <p>GPA: {gpa}</p>
-            </div>
+            return (
+                <div>
+                    <h3>{firstName} {lastName}</h3>
+                    <h4>I attend: {this.props.campus ? <Link to={`/campuses/${this.props.campus.id}`}>{this.props.campus.name}</Link> : 'Not currently enrolled' }</h4>
+                    <h4>Send me an email: {email}</h4>
+                    <img src={imageUrl} />
+                    <p>GPA: {gpa}</p>
+                </div>
+            )
+        } else return (
+            <div>Loading...</div>
         )
+        
     }
     
 }
