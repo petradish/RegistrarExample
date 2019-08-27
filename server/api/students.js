@@ -22,7 +22,7 @@ router.get('/:id', async (req, res, next) => {
     }
 })
 
-router.post('/:id', async (req, res, next) => {
+router.post('/', async (req, res, next) => {
     try {
         const student = await Student.create(req.body)
         res.status(201)

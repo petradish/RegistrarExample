@@ -4,6 +4,8 @@ import AllCampuses from './allCampuses'
 import AllStudents from './allStudents'
 import SingleStudentDetail from './singleStudentDetail';
 import SingleCampusDetail from './singleCampusDetail'
+import AddStudentForm from './addStudent'
+import AddCampusForm from './addCampus'
 
 const Root = () => {
   return (
@@ -13,6 +15,8 @@ const Root = () => {
           <Link to='/'>Welcome</Link>
           <Link to='/campuses'>All Campuses</Link>
           <Link to='/students'>All Students</Link>
+          <Link to ='/addCampus'>Add A Campus</Link>
+          <Link to ='/addStudent'>Add A Student</Link>
         </nav>
         <main>
           <h1>Welcome to the Margaret Hamilton Academy of JavaScript</h1>
@@ -21,9 +25,11 @@ const Root = () => {
             <Route exact path='/' component={AllCampuses} />
             <Route exact path='/campuses' component={AllCampuses} />
             <Route exact path='/campuses/:id' component={SingleCampusDetail} />
+            <Route exact path='/addCampus' component={AddCampusForm} />
 
             <Route exact path='/students' component={AllStudents} />
             <Route exact path='/students/:id' component={SingleStudentDetail} />
+            <Route exact path='/addStudent' component={AddStudentForm} />
             
             <Route component={NoMatch} />
           </Switch>
