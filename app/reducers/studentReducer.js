@@ -3,10 +3,12 @@ import Axios from "axios";
 const GET_STUDENTS = 'GET_STUDENTS'
 const GET_SINGLE_STUDENT = 'GET_SINGLE_STUDENT'
 const ADD_STUDENT = 'ADD_STUDENT'
+const DELETE_STUDENT = 'DELETE_STUDENT'
 
 const gotStudents = students => ({type: GET_STUDENTS, students});
 const gotSingleStudent = (student, campus) => ({type: GET_SINGLE_STUDENT, student, campus})
 const addedStudent = student => ({type: ADD_STUDENT, student})
+const deletedStudent = studentId => ({type: DELETE_STUDENT, studentId})
 
 export const getStudents = () => async dispatch => {
     try {
@@ -36,6 +38,14 @@ export const addStudent = (studentInfo) => async dispatch => {
     }
 }
 
+export const deleteStudent = studentId => async dispatch => {
+    try {
+        await Axios.delete(`/api/students/${studentId}`)
+        dispatch(deletedStudent(studentId))
+    } catch (err) {
+        console.log(err)
+    }
+}
 export const studentReducer = (state = [], action) => {
     switch (action.type){
         case GET_STUDENTS:
@@ -44,6 +54,9 @@ export const studentReducer = (state = [], action) => {
             return [action.student, action.campus]
         case ADD_STUDENT:
             return action.student
+        case DELETE_STUDENT:
+            const updatedStudents = state.filter(student => student.id !== action.studentId)
+            return updatedStudents
         default:
             return state;
     }

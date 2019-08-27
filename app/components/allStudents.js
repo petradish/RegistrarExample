@@ -12,7 +12,9 @@ class disconnectedAllStudents extends React.Component {
           <div className='students'>
               <h2 className='student-title'>All Students</h2>
               <div className='student-container'>
-                  {this.props.allStudents.map(singleStudent => <SingleStudent key={singleStudent.id} student={singleStudent} />)}
+                  {this.props.students && this.props.students.length ?
+                    this.props.students.map(student => <SingleStudent key={student.id} student={student} />)
+                  : 'No Students to Display'}
               </div>
           </div>
       )
@@ -20,7 +22,7 @@ class disconnectedAllStudents extends React.Component {
 }
 
 const mapStateToProps = state => ({
-  allStudents: state.students,
+  students: state.students,
 })
 const mapDispatchToProps = dispatch => ({
   getAllStudents: () => dispatch(getStudents())

@@ -36,7 +36,7 @@ router.delete('/:id', async (req, res, next) => {
         const student = await Student.findById(req.params.id)
         if (!student) return res.sendStatus(404)
         await student.destroy()
-        res.status(204)
+        res.sendStatus(204)
     } catch (err) {
         next(err)
     }

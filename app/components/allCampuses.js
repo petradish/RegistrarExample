@@ -1,7 +1,7 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import {getCampuses} from '../reducers/campusReducer'
-import SingleCampus from './SingleCampus'
+import SingleCampus from './singleCampus'
 
 class disconnectedAllCampuses extends React.Component {
     componentDidMount(){
@@ -12,7 +12,9 @@ class disconnectedAllCampuses extends React.Component {
             <div className='campuses'>
                 <h2 className='campus-title'>All Campuses</h2>
                 <div className='campus-container'>
-                    {this.props.campuses.map(campus => <SingleCampus key={campus.id} campus={campus} />)}
+                    {this.props.campuses && this.props.campuses.length ? 
+                    this.props.campuses.map(campus => <SingleCampus key={campus.id} campus={campus} />)
+                    : 'No Campuses to Display'}
                 </div>
             </div>
         )
