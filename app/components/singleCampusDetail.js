@@ -10,18 +10,18 @@ class disconnectedSingleCampusDetail extends React.Component {
     }
     render(){
         if (this.props.campus) {
-            const {name, imageUrl} = this.props.campus;
+            const {name, imageUrl, description} = this.props.campus;
        
             return (
                 <div className='campusdetail'>
                     <h1>{name}</h1>
-                    <div className='campus-container'>
-                        <div>
-                            <img src={imageUrl} />
-                        </div>
-                        <h3>Enrolled Students:</h3>
+                    <div id='description'>
+                        <h3>Description:</h3>
+                        <p>{description}</p>
                     </div>
                     
+                    <img src={imageUrl} />
+                    <h2>Enrolled Students:</h2>
                     
                     <div className='students'>
                         
@@ -29,7 +29,7 @@ class disconnectedSingleCampusDetail extends React.Component {
                      this.props.students.map(student => <SingleStudent key={student.id} student={student} />)
                     : 'No students enrolled here!'}
                     </div>
-                </div>
+                    </div>
             )
         } else return (
             <h1>The campus you are looking for does not exist!</h1>

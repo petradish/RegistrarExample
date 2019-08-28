@@ -12,7 +12,7 @@ p {
   font-size: 18px;
 }
 a:hover{
-  transition: background-color 1s ease;
+  transition: color 1s ease;
   color: tomato
 }
 a:active{
@@ -26,8 +26,7 @@ a:active{
 }
 
 .link:hover{
-  transition: background-color 1s ease;
-  background-color: peachpuff;
+  transition: color 1s ease;
   color: tomato
 }
 .link:active{
@@ -36,6 +35,10 @@ a:active{
 .schoollink:active{
   color: fuchsia;
   text-shadow: 1px 1px #ff000065;
+}
+.schoollink:hover{
+  transition: color 1s ease;
+  color: tomato
 }
 body {
   background: linear-gradient(to bottom right, #ffffff, peachpuff);
@@ -96,34 +99,33 @@ main {
 }
 .campusdetail {
   display: grid;
-  grid-template-columns: auto auto;
-  grid-template-rows: auto auto auto;
-  grid-column-gap: 1vw;
-  grid-row-gap: 2vh;
-  justify-content: center;
+  grid-template-columns: 40vw 20vw;
+  grid-template-rows: auto auto auto auto;
+  grid-column-gap: 3vw;
+  grid-row-gap: 1vh;
+  justify-content: space-between;
   justify-self: center;
   align-content: space-around;
-  margin-left: 4vw;
+ 
   
 }
-.campusdetail h1 {
+.campusdetail img {
   grid-column-start: 1;
 }
-.campusdetail h3 {
+.campusdetail h2 {
   grid-column-start: 1;
   grid-row-start: 3;
 }
-.campusdetail .campus-container{
-  display: grid;
-  grid-column-start: start;
-  grid-column-end: 1;
-  
+.campusdetail #description{
+  grid-column-start: 2;
+  grid-row-start: 2;
 }
 .campusdetail .students {
   display: grid;
-  grid-row-start: 3;
+  grid-row-start: 4;
   grid-column-start: 1;
-  grid-template-columns: auto auto auto;
+  grid-column-end: 3;
+  grid-template-columns: 15vw 15vw 15vw 15vw;
   grid-row-gap: 2vh;
   grid-column-gap: 2vw;
 }
@@ -179,16 +181,16 @@ main {
 }
 .form input {
   height: 30px;
-  font-size: 16px;
+  font-size: 18px;
 }
 select {
-  font-size: 16px;
+  font-size: 18px;
   background-color: rgba(102, 205, 171, 0.267);
   color: fuchsia;
   height: 3vh;
 }
 button {
-  font-size: 16px;
+  font-size: 18px;
   background-color: gold;
   height: 30px;
 }
@@ -197,5 +199,7 @@ button:hover{
   color: tomato
 }
 .studentdetail {
+  display: grid;
+  justify-content: flex-start;
   margin-left: 4vw;
 }
