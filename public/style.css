@@ -44,7 +44,10 @@ body {
   margin: auto;
   width: 70vw;
 }
-
+img {
+  max-width: 100%;
+  height: auto
+}
 nav {
   background-color: mediumaquamarine;
   color: darkorchid;
@@ -70,10 +73,27 @@ main {
 }
 .students {
   display: grid;
-  grid-template-columns: auto;
   justify-items: center;
 }
+.student-container {
+  display: grid;
+  grid-template-columns: 12vw 12vw 12vw 12vw 12vw;
+  grid-column-gap: 1vw;
+  justify-items: space-around;
+  align-content: flex-start
+}
 
+.student-container .singlestudent {
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-template-rows: auto auto;
+  border: 1px outset papayawhip;
+  align-content: flex-start;
+  justify-items: flex-end;
+}
+.student-container .singlestudent img {
+  grid-column-end: 3
+}
 .campusdetail {
   display: grid;
   grid-template-columns: auto auto;
@@ -97,21 +117,23 @@ main {
   display: grid;
   grid-column-start: start;
   grid-column-end: 1;
+  
 }
 .campusdetail .students {
   display: grid;
   grid-row-start: 3;
   grid-column-start: 1;
-  grid-template-columns: auto auto;
+  grid-template-columns: auto auto auto;
   grid-row-gap: 2vh;
-  justify-content: space-between;
-  justify-items: space-around;
-  justify-self: center;
+  grid-column-gap: 2vw;
 }
 .campusdetail .students .singlestudent {
   display: grid;
-  grid-template-columns: auto auto auto;
-  justify-content: space-between;
+  grid-template-columns: auto auto;
+  grid-template-rows: auto auto;
+  border: 2px solid papayawhip;
+  align-content: flex-start;
+  justify-items: center;
 }
 
 .campuses {
@@ -121,10 +143,21 @@ main {
 }
 .campus-container {
   display: grid;
-  grid-template-columns: 24vw 24vw 24vw;
-  grid-column-gap: 1vw;
+  grid-template-columns: 20vw 20vw 20vw;
+  grid-column-gap: 2vw;
+  grid-row-gap: 2vw;
   justify-items: space-around;
 }
+
+.campus-container .singlecampus {
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-template-rows: auto auto;
+  border: 1px outset papayawhip;
+  align-content: flex-start;
+  justify-items: center;
+}
+
 .form {
   display: grid;
   grid-template-columns: auto 300px;
