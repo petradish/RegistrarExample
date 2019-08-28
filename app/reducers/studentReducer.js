@@ -4,11 +4,13 @@ const GET_STUDENTS = 'GET_STUDENTS'
 const GET_SINGLE_STUDENT = 'GET_SINGLE_STUDENT'
 const ADD_STUDENT = 'ADD_STUDENT'
 const DELETE_STUDENT = 'DELETE_STUDENT'
+const UPDATE_STUDENT = 'UPDATE_STUDENT'
 
 const gotStudents = students => ({type: GET_STUDENTS, students});
 const gotSingleStudent = (student, campus) => ({type: GET_SINGLE_STUDENT, student, campus})
 const addedStudent = student => ({type: ADD_STUDENT, student})
 const deletedStudent = studentId => ({type: DELETE_STUDENT, studentId})
+const updatedStudent = student =>({type: UPDATE_STUDENT, student})
 
 export const getStudents = () => async dispatch => {
     try {
@@ -22,8 +24,6 @@ export const getSingleStudent = (id) => async dispatch => {
     try {
         const {data} = await Axios.get(`/api/students/${id}`)
         dispatch(gotSingleStudent(data, data.campus))
-        // console.log(data.campus)
-        // dispatch(gotSingleCampus(data.campus))
     } catch (err) {
         console.log(err)
     }
@@ -46,6 +46,14 @@ export const deleteStudent = studentId => async dispatch => {
         console.log(err)
     }
 }
+export const updateStudent = (studentId, updatedFields) => async dispatch => {
+    try {
+        const {data} = await Axios.put(`/api/students/${studentId}`, updatedFields)
+        dispatch(updatedStudent(data))
+    } catch (err) {
+        console.log(err)
+    }
+}
 export const studentReducer = (state = [], action) => {
     switch (action.type){
         case GET_STUDENTS:
@@ -57,6 +65,8 @@ export const studentReducer = (state = [], action) => {
         case DELETE_STUDENT:
             const updatedStudents = state.filter(student => student.id !== action.studentId)
             return updatedStudents
+        case UPDATE_STUDENT:
+            return action.student
         default:
             return state;
     }

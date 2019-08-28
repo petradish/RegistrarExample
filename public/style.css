@@ -13,7 +13,7 @@ p {
 }
 a:hover{
   transition: color 1s ease;
-  color: tomato
+  color: magenta
 }
 a:active{
   color: darkcyan;
@@ -27,7 +27,9 @@ a:active{
 
 .link:hover{
   transition: color 1s ease;
-  color: tomato
+  color: fuchsia;
+  text-decoration: underline;
+  text-decoration-color: rgb(77, 243, 188)
 }
 .link:active{
   color: fuchsia;
@@ -40,6 +42,8 @@ a:active{
   transition: color 1s ease;
   color: tomato
 }
+
+
 body {
   background: linear-gradient(to bottom right, #ffffff, peachpuff);
   height: 100vh;
@@ -74,14 +78,24 @@ main {
   align-self: center;
   justify-items: center;
 }
+#registrarheader h1 {
+  text-shadow: 1px 1px mediumaquamarine;
+  text-decoration: underline;
+  text-decoration-color: magenta
+}
 .students {
   display: grid;
   justify-items: center;
 }
+.studentview {
+  display: grid;
+  grid-template-columns: 40vw 30vw;
+}
 .student-container {
   display: grid;
   grid-template-columns: 12vw 12vw 12vw 12vw 12vw;
-  grid-column-gap: 1vw;
+  grid-column-gap: 2vw;
+  grid-row-gap: 2vw;
   justify-items: space-around;
   align-content: flex-start
 }
@@ -97,6 +111,15 @@ main {
 .student-container .singlestudent img {
   grid-column-end: 3
 }
+
+.studentheader {
+  display: grid;
+  grid-template-columns: auto auto;
+  justify-content: flex-start;
+  align-items: center;
+  grid-column-gap: 1vw
+}
+
 .campusdetail {
   display: grid;
   grid-template-columns: 40vw 20vw;
@@ -115,10 +138,15 @@ main {
 .campusdetail h2 {
   grid-column-start: 1;
   grid-row-start: 3;
+  color: magenta
 }
 .campusdetail #description{
   grid-column-start: 2;
   grid-row-start: 2;
+}
+
+#description h3, p {
+  color: tomato
 }
 .campusdetail .students {
   display: grid;
@@ -182,6 +210,7 @@ main {
 .form input {
   height: 30px;
   font-size: 18px;
+  color: fuchsia
 }
 select {
   font-size: 18px;
@@ -202,4 +231,11 @@ button:hover{
   display: grid;
   justify-content: flex-start;
   margin-left: 4vw;
+}
+.students .deleteButton {
+  margin-top: 2vw;
+  color: gold;
+  background-color: red;
+  height: 40px;
+  width: 200px;
 }

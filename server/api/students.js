@@ -41,4 +41,15 @@ router.delete('/:id', async (req, res, next) => {
         next(err)
     }
 })
+
+router.put('/:id', async (req, res, next) => {
+    try {
+        const student = await Student.findById(req.params.id)
+        if (!student) return res.sendStatus(404);
+        const updatedStudent = await student.update(req.body)
+        res.json(updatedStudent)
+    } catch (err) {
+        next(err)
+    }
+})
 module.exports = router;

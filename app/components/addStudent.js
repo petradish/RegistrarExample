@@ -11,7 +11,7 @@ class disconnectedStudentForm extends React.Component {
             firstName: '',
             lastName: '',
             email: '',
-            campusId: ''
+            campusId: null
         }
         this.handleChange = this.handleChange.bind(this)
         this.handleSubmit = this.handleSubmit.bind(this)
@@ -29,7 +29,7 @@ class disconnectedStudentForm extends React.Component {
                 firstName: '',
                 lastName: '',
                 email: '',
-                campusId: ''
+                campusId: null
             })
         } catch (error) {
             console.log(error)
@@ -55,7 +55,7 @@ class disconnectedStudentForm extends React.Component {
                 <label htmlFor='campusId'>Campus:</label>
 
             <select name='campusId' onChange={this.handleChange} value={this.state.campusId}>
-                <option name='campusId' >Enroll at one of our campuses:</option>
+                <option name='campusId' value={null}>Enroll at one of our campuses:</option>
                 {this.props.campuses && this.props.campuses.length ? 
                     this.props.campuses.map(campus => <option key={campus.id} name='campusId' value={Number(campus.id)}>{campus.name}</option>)
                     : 'No Campuses to Display'}
@@ -73,5 +73,5 @@ const mapDispatchToProps = dispatch => ({
 const mapStateToProps = state => ({
     campuses: state.campuses,
 })
-const addStudentForm = connect(mapStateToProps, mapDispatchToProps)(disconnectedStudentForm)
-export default addStudentForm;
+const AddStudentForm = connect(mapStateToProps, mapDispatchToProps)(disconnectedStudentForm)
+export default AddStudentForm;
