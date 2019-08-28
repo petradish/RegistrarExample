@@ -5,30 +5,164 @@
 
 * {
   box-sizing: border-box;
-  font-family: arial, sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
+  color: steelblue;
+}
+p {
+  font-size: 18px;
+}
+a:hover{
+  transition: background-color 1s ease;
+  color: tomato
+}
+a:active{
+  color: darkcyan;
+  text-shadow: 1px 1px #ff000065;
+}
+.link {
+  color: papayawhip;
+  font-size: 20px;
+  text-decoration: none
 }
 
+.link:hover{
+  transition: background-color 1s ease;
+  background-color: peachpuff;
+  color: tomato
+}
+.link:active{
+  color: fuchsia;
+}
+.schoollink:active{
+  color: fuchsia;
+  text-shadow: 1px 1px #ff000065;
+}
 body {
-  background: linear-gradient(#ffffff, #c0c0c0);
+  background: linear-gradient(to bottom right, #ffffff, peachpuff);
   height: 100vh;
   padding: 0;
-  margin: 0;
-  width: 100vw;
+  margin: auto;
+  width: 70vw;
 }
 
 nav {
-  align-items: center;
-  background-color: lightseagreen;
+  background-color: mediumaquamarine;
   color: darkorchid;
-  display: flex;
+  display: grid;
+  grid-template-columns: auto auto auto auto auto;
+  grid-column-gap: 10px;
   justify-content: space-around;
+  align-content: center;
   height: 80px;
   padding: 10px;
 }
 
 main {
-  display: flex;
-  align-items: center;
-  flex-direction: column;
+  display: grid;
+  align-content: center;
+  
+}
+#registrarheader {
+  display: grid;
+  grid-template-columns: auto;
+  align-self: center;
+  justify-items: center;
+}
+.students {
+  display: grid;
+  grid-template-columns: auto;
+  justify-items: center;
+}
 
+.campusdetail {
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-template-rows: auto auto auto;
+  grid-column-gap: 1vw;
+  grid-row-gap: 2vh;
+  justify-content: center;
+  justify-self: center;
+  align-content: space-around;
+  margin-left: 4vw;
+  
+}
+.campusdetail h1 {
+  grid-column-start: 1;
+}
+.campusdetail h3 {
+  grid-column-start: 1;
+  grid-row-start: 3;
+}
+.campusdetail .campus-container{
+  display: grid;
+  grid-column-start: start;
+  grid-column-end: 1;
+}
+.campusdetail .students {
+  display: grid;
+  grid-row-start: 3;
+  grid-column-start: 1;
+  grid-template-columns: auto auto;
+  grid-row-gap: 2vh;
+  justify-content: space-between;
+  justify-items: space-around;
+  justify-self: center;
+}
+.campusdetail .students .singlestudent {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  justify-content: space-between;
+}
+
+.campuses {
+  display: grid;
+  grid-template-columns: auto;
+  justify-items: center;
+}
+.campus-container {
+  display: grid;
+  grid-template-columns: 24vw 24vw 24vw;
+  grid-column-gap: 1vw;
+  justify-items: space-around;
+}
+.form {
+  display: grid;
+  grid-template-columns: auto 300px;
+  grid-column-gap: 3vh;
+  grid-row-gap: 2vh;
+  justify-content: center
+}
+.form button {
+  grid-column-start: 1;
+  grid-column-end: 3;
+  padding: 5px;
+  margin-right: 100px;
+  margin-left: 100px;
+}
+.form label {
+  font-size: 18px;
+  justify-self: flex-end;
+  align-self: center;
+}
+.form input {
+  height: 30px;
+  font-size: 16px;
+}
+select {
+  font-size: 16px;
+  background-color: rgba(102, 205, 171, 0.267);
+  color: fuchsia;
+  height: 3vh;
+}
+button {
+  font-size: 16px;
+  background-color: gold;
+  height: 30px;
+}
+button:hover{
+  transition: color 1s ease;
+  color: tomato
+}
+.studentdetail {
+  margin-left: 4vw;
 }

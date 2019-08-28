@@ -31,9 +31,9 @@ class disconnectedCampusForm extends React.Component {
     }
     render(){
         return (
-            <div>
+            <div className='campuses'>
             <h2>Add a New Campus</h2>
-            <form onSubmit={this.handleSubmit}>
+            <form className='form' onSubmit={this.handleSubmit}>
                 <label htmlFor='name'>Name:</label>
                 <input type='text' name='name' onChange={this.handleChange} value={this.state.name} />
 

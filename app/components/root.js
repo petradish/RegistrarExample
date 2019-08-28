@@ -11,16 +11,18 @@ const Root = () => {
   return (
     <Router>
       <div>
+          <div id='registrarheader'>
+            <h1>Office of the Registrar</h1>
+          </div>
         <nav>
-          <Link to='/'>Welcome</Link>
-          <Link to='/campuses'>All Campuses</Link>
-          <Link to='/students'>All Students</Link>
-          <Link to ='/addCampus'>Add A Campus</Link>
-          <Link to ='/addStudent'>Add A Student</Link>
+          <Link className='link' activeClassName='active-link' to='/'>Welcome</Link>
+          <Link className='link' activeClassName='active-link' to='/campuses'>All Campuses</Link>
+          <Link className='link' activeClassName='active-link' to='/students'>All Students</Link>
+          <Link className='link' activeClassName='active-link' to ='/addCampus'>Add A Campus</Link>
+          <Link className='link' activeClassName='active-link' to ='/addStudent'>Add A Student</Link>
         </nav>
         <main>
-          <h1>Welcome to the Margaret Hamilton Academy of JavaScript</h1>
-          <p>Check out our campus locations and star students!</p>
+          
           <Switch>
             <Route exact path='/' component={AllCampuses} />
             <Route exact path='/campuses' component={AllCampuses} />
@@ -42,8 +44,9 @@ function NoMatch({location}) {
   return (
     <div>
       <h1>
-        No Match for <code>{location.pathname}</code>
+        No Match for URL: ... <code>{location.pathname}</code>
       </h1>
+      <h2>Please use one of the links above to navigate to the page you're looking for!</h2>
     </div>
   )
 }

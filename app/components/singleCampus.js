@@ -7,7 +7,7 @@ const disconnectedSingleCampus = props => {
     const {name, imageUrl, id} = props.campus;
     return (
         <div>
-             <Link to={`/campuses/${id}`}> <h3>{name}</h3> </Link>
+             <Link className='link' to={`/campuses/${id}`}> <h3>{name}</h3> </Link>
              <button type='button' onClick={() => props.deleteCampus(id)}>X</button>
             <img src={imageUrl} />
         </div>

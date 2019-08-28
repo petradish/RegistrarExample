@@ -51,6 +51,12 @@ const students = [{
   lastName: 'Laohakul',
   email: 'petra@gmail.com',
   gpa: 3.5
+}, {
+  firstName: 'John',
+  lastName: 'Doe',
+  email: 'johndoe@hotmail.com',
+  gpa: 3,
+  campusId: 1
 }];
 
 const seed = async () => {

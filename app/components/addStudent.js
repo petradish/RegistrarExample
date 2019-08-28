@@ -1,6 +1,8 @@
 import React from 'react'
 import {addStudent} from '../reducers/studentReducer'
 import {connect} from 'react-redux'
+import { getCampuses } from '../reducers/campusReducer';
+
 
 class disconnectedStudentForm extends React.Component {
     constructor(){
@@ -8,7 +10,8 @@ class disconnectedStudentForm extends React.Component {
         this.state = {
             firstName: '',
             lastName: '',
-            email: ''
+            email: '',
+            campusId: ''
         }
         this.handleChange = this.handleChange.bind(this)
         this.handleSubmit = this.handleSubmit.bind(this)
@@ -25,17 +28,22 @@ class disconnectedStudentForm extends React.Component {
             this.setState({
                 firstName: '',
                 lastName: '',
-                email: ''
+                email: '',
+                campusId: ''
             })
         } catch (error) {
             console.log(error)
         }
     }
+    componentDidMount(){
+        this.props.getAllCampuses()
+    }
     render(){
+        
         return (
-            <div>
+            <div className='students'>
             <h2>Add a New Student</h2>
-            <form onSubmit={this.handleSubmit}>
+            <form className='form' onSubmit={this.handleSubmit}>
                 <label htmlFor='firstName'>First Name:</label>
                 <input type='text' name='firstName' onChange={this.handleChange} value={this.state.firstName} />
 
@@ -44,15 +52,26 @@ class disconnectedStudentForm extends React.Component {
                 
                 <label htmlFor='email'>E-mail:</label>
                 <input type='text' name='email' onChange={this.handleChange} value={this.state.email} />
-                <button type='submit'>Submit</button>
+                <label htmlFor='campusId'>Campus:</label>
+
+            <select name='campusId' onChange={this.handleChange} value={this.state.campusId}>
+                <option name='campusId' >Enroll at one of our campuses:</option>
+                {this.props.campuses && this.props.campuses.length ? 
+                    this.props.campuses.map(campus => <option key={campus.id} name='campusId' value={Number(campus.id)}>{campus.name}</option>)
+                    : 'No Campuses to Display'}
+            </select>
+            <button type='submit'>Submit</button>
              </form>
             </div>
         )
     }
 }
 const mapDispatchToProps = dispatch => ({
-    addStudent: (studentInfo) => dispatch(addStudent(studentInfo))
+    addStudent: (studentInfo) => dispatch(addStudent(studentInfo)),
+    getAllCampuses: () => dispatch(getCampuses())
 })
-
-const addStudentForm = connect(null, mapDispatchToProps)(disconnectedStudentForm)
+const mapStateToProps = state => ({
+    campuses: state.campuses,
+})
+const addStudentForm = connect(mapStateToProps, mapDispatchToProps)(disconnectedStudentForm)
 export default addStudentForm;

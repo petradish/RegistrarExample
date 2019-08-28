@@ -13,18 +13,26 @@ class disconnectedSingleCampusDetail extends React.Component {
             const {name, imageUrl} = this.props.campus;
        
             return (
-                <div>
-                    <h3>{name}</h3>
-                    <img src={imageUrl} />
-                    <h4>Enrolled Students:</h4>
-                    {(this.props.students.length || this.props.students.length > 0) ?
+                <div className='campusdetail'>
+                    <h1>{name}</h1>
+                    <div className='campus-container'>
+                        <div>
+                            <img src={imageUrl} />
+                        </div>
+                        <h3>Enrolled Students:</h3>
+                    </div>
+                    
+                    
+                    <div className='students'>
+                        
+                        {(this.props.students.length || this.props.students.length > 0) ?
                      this.props.students.map(student => <SingleStudent key={student.id} student={student} />)
-                    : 'no students here!'}
-               
+                    : 'No students enrolled here!'}
+                    </div>
                 </div>
             )
         } else return (
-            <div>Loading...</div>
+            <h1>The campus you are looking for does not exist!</h1>
         )
         
     }

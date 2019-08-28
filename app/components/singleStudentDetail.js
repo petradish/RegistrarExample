@@ -16,16 +16,16 @@ class disconnectedSingleStudentDetail extends React.Component {
             const {firstName, lastName, imageUrl, email, gpa} = this.props.student
      
             return (
-                <div>
-                    <h3>{firstName} {lastName}</h3>
-                    <h4>I attend: {this.props.campus ? <Link to={`/campuses/${this.props.campus.id}`}>{this.props.campus.name}</Link> : 'Not currently enrolled' }</h4>
-                    <h4>Send me an email: {email}</h4>
+                <div className='studentdetail'>
+                    <h1>{firstName} {lastName}</h1>
+                    <h2>I attend: {this.props.campus ? <Link className='schoollink' to={`/campuses/${this.props.campus.id}`}>{this.props.campus.name}</Link> : 'Not currently enrolled' }</h2>
+                    <h3>Send me an email at: <a href={`mailto: ${email}`}>{email}</a></h3>
                     <img src={imageUrl} />
-                    <p>GPA: {gpa}</p>
+                    <h3>GPA: {gpa}</h3>
                 </div>
             )
         } else return (
-            <div>Loading...</div>
+            <h1>There is no such student registered!</h1>
         )
         
     }

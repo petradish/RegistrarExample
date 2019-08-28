@@ -6,9 +6,9 @@ import {deleteStudent} from '../reducers/studentReducer'
 const disconnectedSingleStudent = props => {
     const {id, firstName, lastName, imageUrl} = props.student;
     return (
-        <div>
-            <Link to={`/students/${id}`}> 
-            <h3>{firstName} {lastName}</h3> </Link>
+        <div className='singlestudent'>
+            <Link className='schoollink' to={`/students/${id}`}> 
+            <h2>{firstName} {lastName}</h2></Link>
             <button type='button' onClick={() => props.deleteStudent(id)}>X</button>
             <img src={imageUrl} />
 
