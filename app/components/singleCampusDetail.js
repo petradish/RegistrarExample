@@ -1,7 +1,6 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import { getSingleCampus } from '../reducers/campusReducer';
-import {deleteStudent} from '../reducers/studentReducer';
 import SingleStudent from './singleStudent';
 import EditCampusForm from './editCampusForm';
 
@@ -15,9 +14,9 @@ class disconnectedSingleCampusDetail extends React.Component {
     }
     componentDidMount(){
         const campusId = this.props.match.params.id
-        this.props.getCampus(campusId)
-
+        this.props.getCampus(campusId);
     }
+  
     editMode(){
         this.setState({
             editMode: !this.state.editMode
@@ -55,7 +54,7 @@ class disconnectedSingleCampusDetail extends React.Component {
                     <div className='students'>
                 
                         {(this.props.students.length || this.props.students.length > 0) ?
-                        this.props.students.map(student => <SingleStudent deleteStudent={this.deleteStudent} key={student.id} student={student} />)
+                        this.props.students.map(student => <SingleStudent campusId={id} key={student.id} student={student} />)
                         : 'No students enrolled here!'}
                     </div>
                 </div>
@@ -69,10 +68,11 @@ class disconnectedSingleCampusDetail extends React.Component {
 }
 const mapStateToProps = state => ({
     campus: state.campuses[0],
-    students: state.campuses[1]
+    students: state.campuses[1],
+ 
 })
 const mapDispatchToProps = dispatch => ({
-    getCampus: (id) => dispatch(getSingleCampus(id))
+    getCampus: (id) => dispatch(getSingleCampus(id)),
 })
 
 const SingleCampusDetail = connect(mapStateToProps, mapDispatchToProps)(disconnectedSingleCampusDetail)
