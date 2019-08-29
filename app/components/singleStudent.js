@@ -3,13 +3,20 @@ import {Link} from 'react-router-dom'
 import {connect} from 'react-redux'
 import {deleteStudent} from '../reducers/studentReducer'
 
+
 const disconnectedSingleStudent = props => {
     const {id, firstName, lastName, imageUrl} = props.student;
     return (
         <div className='singlestudent'>
             <Link className='schoollink' to={`/students/${id}`}> 
             <h2>{firstName} {lastName}</h2></Link>
-            <button type='button' onClick={() => props.deleteStudent(id)}>X</button>
+            <button type='button' onClick={() => {
+                let yes = confirm(`Are you sure you want to delete ${firstName} ${lastName}?`)
+                if (yes) {
+                    this.props.deleteStudent(id)
+                } else return;}}>
+                X
+            </button>
             <img src={imageUrl} />
 
         </div>
