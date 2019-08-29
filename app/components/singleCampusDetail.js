@@ -29,29 +29,33 @@ class disconnectedSingleCampusDetail extends React.Component {
             return (
                 <div className='campusdetail'>
                     
-                    <div id='description'>
-                        
-                        <h3>Description:</h3>
-                        <p>{description}</p>
-                        <button type='button' className='edit' onClick={() => this.editMode()}>Edit Campus</button>
-                        {this.state.editMode && id === Number(this.props.match.params.id) ?
-                        <EditCampusForm id={id} name={name} address={address} description={description}/>
+                        {!this.state.editMode ?
+                        <div id='description'>
+                            <h3>Description:</h3>
+                            <p>{description}</p>
+                            <button type='button' className='edit' onClick={() => this.editMode()}>Edit Mode</button>
+                        </div>
                         : null}
-                    </div>
-                    <div className='campusheader'>
-                        <h1>{name}</h1>
-                        <img src={imageUrl} />
-                    </div>
+                        {this.state.editMode && id === Number(this.props.match.params.id) ?
+                            <EditCampusForm id={id} name={name} address={address} description={description}/>
+                        : null}
                     
+                    <div className='campusheader'>
+                        <h1>{name} {this.state.editMode ?
+                        <button id='returnbutton' type='button' className='edit' onClick={() => this.editMode()}>Return to View Mode</button>
+                        : null}</h1>
+                     
+                        <img src={imageUrl} />   
+                    </div>
+                 
                     <h2>Enrolled Students:</h2>
-
                     <div className='students'>
-                        
+                
                         {(this.props.students.length || this.props.students.length > 0) ?
-                     this.props.students.map(student => <SingleStudent key={student.id} student={student} />)
-                    : 'No students enrolled here!'}
+                        this.props.students.map(student => <SingleStudent key={student.id} student={student} />)
+                        : 'No students enrolled here!'}
                     </div>
-                    </div>
+                </div>
             )
         } else return (
             <h1>The campus you are looking for does not exist!</h1>

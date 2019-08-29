@@ -25,6 +25,7 @@ class disconnectedStudentForm extends React.Component {
         try {
             event.preventDefault()
             this.props.addStudent(this.state)
+            alert(`${this.state.firstName} ${this.state.lastName} has been successfully submitted to the registrar.`)
             this.setState({
                 firstName: '',
                 lastName: '',

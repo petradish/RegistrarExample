@@ -22,6 +22,7 @@ class disconnectedCampusForm extends React.Component {
         try {
             event.preventDefault()
             this.props.addCampus(this.state)
+            alert(`${this.state.name} has been successfully added to our campus list.`)
             this.setState({
                 name: '',
                 address: '',

@@ -57,7 +57,9 @@ class disconnectedEditCampusForm extends React.Component {
     render(){
         return (
             <div className='campuses'>
+                <h3>Edit Campus:</h3>
                 <form className='form' onSubmit={this.handleSubmit}>
+                
                     <label htmlFor='name'>Name:</label>
                     <input type='text' name='name' onChange={this.handleChange} value={this.state.name} />
 
