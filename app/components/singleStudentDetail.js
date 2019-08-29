@@ -17,7 +17,6 @@ class disconnectedSingleStudentDetail extends React.Component {
     componentDidMount(){
         const studentId = this.props.match.params.id
         this.props.getStudent(studentId)
-    
     }
 
     editMode(){

@@ -37,7 +37,7 @@ class disconnectedEditStudentForm extends React.Component {
             console.log(error)
         }
     }
-    handleDelete(event){
+    handleDelete(){
 
         let yes = confirm('Are you sure you want to delete this student?')
         if (yes) {
@@ -83,7 +83,7 @@ class disconnectedEditStudentForm extends React.Component {
                 </select>
                 <button type='submit'>Submit</button>
                 </form>
-                <button className='deleteButton' type='submit' onClick={this.handleDelete}>!Delete Student!</button>
+                <button className='deleteButton' type='submit' onClick={this.handleDelete}>! Delete Student !</button>
             </div>
         )
     }

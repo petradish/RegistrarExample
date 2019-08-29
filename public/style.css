@@ -122,7 +122,7 @@ main {
 
 .campusdetail {
   display: grid;
-  grid-template-columns: 40vw 20vw;
+  grid-template-columns: 30vw 30vw;
   grid-template-rows: auto auto auto auto;
   grid-column-gap: 3vw;
   grid-row-gap: 1vh;
@@ -132,17 +132,21 @@ main {
  
   
 }
-.campusdetail img {
+.campusdetail .campusheader {
+  grid-row-start: 1;
   grid-column-start: 1;
 }
+
 .campusdetail h2 {
-  grid-column-start: 1;
-  grid-row-start: 3;
+  grid-row-start: 2;
+  grid-column-end: span 2;
+  justify-self: center;
   color: magenta
 }
 .campusdetail #description{
   grid-column-start: 2;
-  grid-row-start: 2;
+  grid-row-end: 2;
+  align-self: center;
 }
 
 #description h3, p {
@@ -190,7 +194,7 @@ main {
 
 .form {
   display: grid;
-  grid-template-columns: auto 300px;
+  grid-template-columns: auto 20vw;
   grid-column-gap: 3vh;
   grid-row-gap: 2vh;
   justify-content: center
@@ -212,11 +216,17 @@ main {
   font-size: 18px;
   color: fuchsia
 }
+.form textarea {
+  height: 100px;
+  font-size: 18px;
+  color: fuchsia;
+  overflow-wrap: break-word;
+}
 select {
   font-size: 18px;
   background-color: rgba(102, 205, 171, 0.267);
   color: fuchsia;
-  height: 3vh;
+  height: 4vh;
 }
 button {
   font-size: 18px;
@@ -233,6 +243,13 @@ button:hover{
   margin-left: 4vw;
 }
 .students .deleteButton {
+  margin-top: 2vw;
+  color: gold;
+  background-color: red;
+  height: 40px;
+  width: 200px;
+}
+.campuses .deleteButton {
   margin-top: 2vw;
   color: gold;
   background-color: red;

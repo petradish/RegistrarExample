@@ -2,27 +2,49 @@ import React from 'react'
 import {connect} from 'react-redux'
 import { getSingleCampus } from '../reducers/campusReducer';
 import SingleStudent from './singleStudent';
+import EditCampusForm from './editCampusForm';
 
 class disconnectedSingleCampusDetail extends React.Component {
+    constructor (props) {
+        super(props)
+        this.state = {
+            editMode: false
+        }
+        this.editMode = this.editMode.bind(this)
+    }
     componentDidMount(){
         const campusId = this.props.match.params.id
         this.props.getCampus(campusId)
     }
+    editMode(){
+        this.setState({
+            editMode: !this.state.editMode
+        })
+    }
     render(){
+       
         if (this.props.campus) {
-            const {name, imageUrl, description} = this.props.campus;
+            const {id, name, imageUrl, description, address} = this.props.campus;
        
             return (
                 <div className='campusdetail'>
-                    <h1>{name}</h1>
+                    
                     <div id='description'>
+                        
                         <h3>Description:</h3>
                         <p>{description}</p>
+                        <button type='button' className='edit' onClick={() => this.editMode()}>Edit Campus</button>
+                        {this.state.editMode && id === Number(this.props.match.params.id) ?
+                        <EditCampusForm id={id} name={name} address={address} description={description}/>
+                        : null}
+                    </div>
+                    <div className='campusheader'>
+                        <h1>{name}</h1>
+                        <img src={imageUrl} />
                     </div>
                     
-                    <img src={imageUrl} />
                     <h2>Enrolled Students:</h2>
-                    
+
                     <div className='students'>
                         
                         {(this.props.students.length || this.props.students.length > 0) ?

@@ -42,4 +42,15 @@ router.delete('/:id', async (req, res, next) => {
         next(err)
     }
 })
+
+router.put('/:id', async (req, res, next) => {
+    try {
+        const campus = await Campus.findById(req.params.id)
+        if (!campus) res.sendStatus(404)
+        const updatedCampus = await campus.update(req.body)
+        res.send(updatedCampus)
+    } catch (err) {
+        next(err)
+    }
+})
 module.exports = router;

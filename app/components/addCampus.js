@@ -7,7 +7,8 @@ class disconnectedCampusForm extends React.Component {
         super()
         this.state = {
             name: '',
-            address: ''
+            address: '',
+            description: ''
         }
         this.handleChange = this.handleChange.bind(this)
         this.handleSubmit = this.handleSubmit.bind(this)
@@ -23,7 +24,8 @@ class disconnectedCampusForm extends React.Component {
             this.props.addCampus(this.state)
             this.setState({
                 name: '',
-                address: ''
+                address: '',
+                description: ''
             })
         } catch (error) {
             console.log(error)
@@ -39,6 +41,8 @@ class disconnectedCampusForm extends React.Component {
 
                 <label htmlFor='address'>Address:</label>
                 <input type='address' name='address' onChange={this.handleChange} value={this.state.address} />
+                <label htmlFor='description'>Description:</label>
+                    <textarea id='fieldbox' name='description' onChange={this.handleChange} value={this.state.description} />
                 <button type='submit'>Submit</button>
              </form>
             </div>

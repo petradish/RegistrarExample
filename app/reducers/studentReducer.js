@@ -63,7 +63,7 @@ export const studentReducer = (state = [], action) => {
         case ADD_STUDENT:
             return action.student
         case DELETE_STUDENT:
-            const updatedStudents = state.filter(student => student.id !== action.studentId)
+            const updatedStudents = state.filter(student => student.id !== action.studentId && !student.name)
             return updatedStudents
         case UPDATE_STUDENT:
             return action.student
