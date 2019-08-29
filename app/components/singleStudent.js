@@ -13,7 +13,7 @@ const disconnectedSingleStudent = props => {
             <button type='button' onClick={() => {
                 let yes = confirm(`Are you sure you want to delete ${firstName} ${lastName}?`)
                 if (yes) {
-                    this.props.deleteStudent(id)
+                    props.deleteStudent(id)
                 } else return;}}>
                 X
             </button>
