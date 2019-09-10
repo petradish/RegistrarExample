@@ -28,10 +28,10 @@ const campuses = [{
 const students = [{
   firstName: 'Kimberly',
   lastName: 'Zawacki',
-  email: 'zimfarts@poop.com',
+  email: 'kzawacki@funnyfriend.edu',
   imageUrl: 'https://vignette.wikia.nocookie.net/thering/images/3/31/Ring_samara_slider.jpg/revision/latest?cb=20170124222520',
   gpa: 3.9,
-  campusId: 2
+  campusId: 4
 }, {
   firstName: 'Hermione',
   lastName: 'Granger',
@@ -50,6 +50,7 @@ const students = [{
   firstName: 'Petra',
   lastName: 'Laohakul',
   email: 'petra@gmail.com',
+  imageUrl: 'https://polygonnews.org/wp-content/uploads/2017/12/IMG_0265-900x600.jpg',
   gpa: 3.5
 }, {
   firstName: 'John',
